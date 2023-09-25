@@ -22,8 +22,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build project
-      run: npm run build
+    - name: Create a temporary directory
+      run: mkdir temp_dist
+
+    - name: Build project in temporary directory
+      run: |
+        cd temp_dist
+        npm install
+        npm run build
 
     - name: Zip dist contents
       run: |
@@ -37,7 +43,7 @@ jobs:
         else
           ZIP_NAME="$REPO_NAME-$CURRENT_DATE.zip"
         fi
-        cd dist/
+        cd temp_dist
         zip -r ../$ZIP_NAME .
         echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
       shell: bash
