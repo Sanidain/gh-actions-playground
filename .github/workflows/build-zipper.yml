@@ -27,7 +27,6 @@ jobs:
 
     - name: Build project in temporary directory
       run: |
-        cd temp_dist
         npm install
         npm run build
 
