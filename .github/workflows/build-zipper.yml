@@ -30,6 +30,9 @@ jobs:
         npm install
         npm run build
 
+    - name: Inspect dist folder
+      run: ls temp_dist
+
     - name: Zip dist contents
       run: |
         CURRENT_DATE=$(date +"%d.%m.")
