@@ -18,7 +18,8 @@
     "url": "https://github.com/Sanidain/gh-actions-playground/issues"
   },
   "homepage": "https://github.com/Sanidain/gh-actions-playground#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "parcel": "^2.9.3"
   }
 }
