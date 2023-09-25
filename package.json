@@ -2,9 +2,10 @@
   "name": "gh-actions-playground",
   "version": "1.0.0",
   "description": "A playground repo for github actions",
-  "main": "index.js",
+  "default": "index.js",
   "scripts": {
     "build": "parcel build src/app.js",
+    "build-temp": "parcel build  src/app.js --dist-dir ./temp_dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
