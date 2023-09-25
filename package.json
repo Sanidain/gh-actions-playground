@@ -4,7 +4,7 @@
   "description": "A playground repo for github actions",
   "main": "index.js",
   "scripts": {
-    "build": "parcel src/app.js",
+    "build": "parcel build src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
