@@ -30,10 +30,7 @@ jobs:
         npm install
         npm run build-temp
 
-    - name: Inspect dist folder
-      run: ls temp_dist
-
-    - name: Zip dist contents
+    - name: Name artifact
       run: |
         CURRENT_DATE=$(date +"%Y-%m-%d-%H-%M-%S")
         REPO_NAME=$(basename $GITHUB_REPOSITORY)
@@ -42,16 +39,16 @@ jobs:
           ZIP_NAME="$REPO_NAME-sta-$CURRENT_DATE.zip"
         elif [ "$BRANCH_NAME" == "main" ]; then
           ZIP_NAME="$REPO_NAME-prod-$CURRENT_DATE.zip"
+        elif [ "$BRANCH_NAME" == "dev" ]; then
+          ZIP_NAME="$REPO_NAME-dev-$CURRENT_DATE.zip"
         else
           ZIP_NAME="$REPO_NAME-$CURRENT_DATE.zip"
         fi
-        cd temp_dist
-        zip -r ../$ZIP_NAME .
         echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-      shell: bash
+
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ runner.os }}-artifact
-        path: ${{ runner.workspace }}/$ZIP_NAME
+        name: ${{ env.ZIP_NAME }}
+        path: temp_dist  
