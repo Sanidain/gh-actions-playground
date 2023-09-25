@@ -36,13 +36,13 @@ jobs:
         REPO_NAME=$(basename $GITHUB_REPOSITORY)
         BRANCH_NAME=$(echo $GITHUB_REF | awk -F/ '{print $3}')
         if [ "$BRANCH_NAME" == "staging" ]; then
-          ZIP_NAME="$REPO_NAME-sta-$CURRENT_DATE.zip"
+          ZIP_NAME="$REPO_NAME-sta-$CURRENT_DATE"
         elif [ "$BRANCH_NAME" == "main" ]; then
-          ZIP_NAME="$REPO_NAME-prod-$CURRENT_DATE.zip"
+          ZIP_NAME="$REPO_NAME-prod-$CURRENT_DATE"
         elif [ "$BRANCH_NAME" == "dev" ]; then
-          ZIP_NAME="$REPO_NAME-dev-$CURRENT_DATE.zip"
+          ZIP_NAME="$REPO_NAME-dev-$CURRENT_DATE"
         else
-          ZIP_NAME="$REPO_NAME-$CURRENT_DATE.zip"
+          ZIP_NAME="$REPO_NAME-$CURRENT_DATE"
         fi
         echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
