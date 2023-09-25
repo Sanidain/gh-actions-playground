@@ -35,7 +35,7 @@ jobs:
 
     - name: Zip dist contents
       run: |
-        CURRENT_DATE=$(date +"%d.%m.")
+        CURRENT_DATE=$(date +"%Y-%m-%d-%H-%M-%S")
         REPO_NAME=$(basename $GITHUB_REPOSITORY)
         BRANCH_NAME=$(echo $GITHUB_REF | awk -F/ '{print $3}')
         if [ "$BRANCH_NAME" == "staging" ]; then
@@ -54,4 +54,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ${{ runner.os }}-artifact
-        path: ${{ env.ZIP_NAME }}  
+        path: ${{ runner.workspace }}/$ZIP_NAME
