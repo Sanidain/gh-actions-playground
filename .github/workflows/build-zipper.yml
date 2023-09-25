@@ -28,7 +28,7 @@ jobs:
     - name: Build project in temporary directory
       run: |
         npm install
-        npm run build
+        npm run build-temp
 
     - name: Inspect dist folder
       run: ls temp_dist
