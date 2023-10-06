@@ -1,3 +1,10 @@
+name: Release Notifications
+
+on:
+  release:
+    types:
+      - created
+
 jobs:
   notify_slack:
     runs-on: ubuntu-latest
